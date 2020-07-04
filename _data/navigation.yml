@@ -53,13 +53,13 @@ deeplearning:
   - title:      深度学习
     children:
       - title:  深度学习路线会议
-        url:    /_posts/2020-06-26-21deep-learning-roadmap
+        url:    /2020/06/26/21deep-learning-roadmap.html
       - title:  经典论文 Deep learning 
-        url:    /_posts/2020-06-26-22deep-learning
+        url:    /2020/06/26/22deep-learning.html
       
 
 secondary_prediction:
   - title:      二级结构预测
     children:
       - title:  efn2头文件相关分析
-        url:    /_posts/2020-07-03-31RNAstructure_header.md
+        url:    /2020/07/03/31RNAstructure_header.html

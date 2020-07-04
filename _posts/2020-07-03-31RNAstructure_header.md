@@ -41,11 +41,35 @@ RNA类为RNA结构的所有单个序列操作提供了切入点。
 
 typedef int RNAInputType; 只是为了帮助新程序员找到正确的常量（定义如下）
 
-\#define SEQUENCE_STRING 0
+```c++
+//file :RNA_class > RNA.h
+//! A string containing the sequence -- NOT a file name.
+#define SEQUENCE_STRING 0
+//! CT Structure file
+#define	FILE_CT 1
+//! Sequence file (FASTA, SEQ or plain-text sequence)
+#define	FILE_SEQ 2
+//! Partition function save file (*.pfs)
+#define	FILE_PFS 3
+//! Folding Save file (*.sav)
+#define	FILE_SAV 4
+//! Dot-Bracket Notation Structure file (*.dbn, *.dot, *.bracket)
+#define	FILE_DBN 5
+```
 
-\#define FILE_CT 1
+#### RNA类
 
-\#define FILE_SEQ 2
+| 作用域 | 函数名/变量名                                     | 描述       | 参数 | 返回值 |
+| ------ | ------------------------------------------------- | ---------- | ---- | ------ |
+| public | RNA(const char sequence[], const bool IsRNA=true) | 构造函数<> |      |        |
+| …      |                                                   |            |      |        |
+| …      |                                                   |            |      |        |
+|        |                                                   |            |      |        |
+|        |                                                   |            |      |        |
+|        |                                                   |            |      |        |
+|        |                                                   |            |      |        |
+
+
 
 ### basepair.h分析
 
