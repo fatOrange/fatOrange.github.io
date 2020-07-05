@@ -39,7 +39,7 @@ RNA类为RNA结构的所有单个序列操作提供了切入点。
 
 typedef int RNAInputType; 只是为了帮助新程序员找到正确的常量（定义如下）
 
-```c++
+``` cpp
 //file :RNA_class > RNA.h
 //! A string containing the sequence -- NOT a file name.
 #define SEQUENCE_STRING 0
