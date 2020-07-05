@@ -11,8 +11,6 @@ mathjax: true
 mathjax_autoNumber: true
 ---
 
-# efn2文件分析
-
 #### 模块分层
 
 | 层次   | 内容  |

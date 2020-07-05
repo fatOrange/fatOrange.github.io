@@ -1,4 +1,6 @@
+{%- include comments-providers/valine.html -%}
 {%- if jekyll.environment != 'development' -%}
+  {%- include comments-providers/valine.html -%}
   {%- if site.comments.provider == 'disqus' -%}
     {%- include comments-providers/disqus.html -%}
   {%- elsif site.comments.provider == 'gitalk' -%}

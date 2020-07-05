@@ -27,7 +27,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: zh # the language of your site, default as "en"
+lang:  # the language of your site, default as "en"
 timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
@@ -129,19 +129,19 @@ comments:
   gitalk:
     clientID    : d8dd852f3e6938fa4cb4 # GitHub Application Client ID
     clientSecret: 75fe77cc880c1f6c6b6fbfe779a1ff68bc14eabd # GitHub Application Client Secret
-    repository  : fatOrange/fatOrange.github.io # GitHub repo
-    owner       : fatOrange # GitHub repo owner
+    repository  : fatorange.github.io # GitHub repo
+    owner       : fatorange # GitHub repo owner
     admin:   # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      - fatOrange
+      - fatorange
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
   valine:
     app_id      : yDRwqXClugAiOrsx0rYuQiha-gzGzoHsz # LeanCloud App id
     app_key     : R0OolC6JYx0VjbVruBoQSMS7 # LeanCloud App key
-    placeholder : # Prompt information
+    placeholder : 请输入# Prompt information
     visitor     : true # false (default)
-    meta        : "[nick, mail, link]" # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
+    meta        : [nick, mail, link] # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
 
 
 ## => Pageview
