@@ -63,3 +63,13 @@ secondary_prediction:
     children:
       - title:  efn2头文件相关分析
         url:    /2020/07/03/31RNAstructure_header.html
+      - title:  RNA类分析
+        url:    /2020/07/05/32RNAClass.html
+
+learnCpp:
+  - title:      c++知识点
+    children:
+      - title:  c++ Tips
+        url:    /2020/07/06/41cppTips.html
+      # - title:  RNA类分析
+      #   url:    /2020/07/05/32RNAClass.html
