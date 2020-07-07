@@ -11,9 +11,9 @@
     var appId, appKey, appClass;
     appId = options.appId;
     appKey = options.appKey;
-    appClass = options.appClass;
+    appClass = Counter;
     AV.init({
-      serverURLs: 'https://avoscloud.com',
+      serverURLs: 'https://leancloud.cn/',
       appId: appId,
       appKey: appKey
     });

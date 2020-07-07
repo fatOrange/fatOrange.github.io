@@ -223,18 +223,21 @@ layout: base
                         
                         <div id="vcomments"></div>
                         <script>
-                            new Valine({
-                                el: '#vcomments',
-                                appId: 'yDRwqXClugAiOrsx0rYuQiha-gzGzoHsz',
-                                appKey: 'R0OolC6JYx0VjbVruBoQSMS7',
-                                avatar: 'robohash',
-                                placeholder: '留下你的观点'
-                            })
-                        </script>
+                          new Valine({
+                              el: '#vcomments',
+                              appId: 'yDRwqXClugAiOrsx0rYuQiha-gzGzoHsz',
+                              appKey: 'R0OolC6JYx0VjbVruBoQSMS7',
+                              avatar: 'robohash',
+                              placeholder: '留下你的观点',
+                              visitor: true // 阅读量统计
+                          })
+                      </script>
+
 
                         <!-- {%- include comments.html -%}</section> -->
                     <!-- {%- endif -%} -->
                 </article>
+               
                 {%- include main/bottom/custom.html -%}
               </div>
             </div>
