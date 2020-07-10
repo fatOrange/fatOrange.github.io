@@ -67,6 +67,8 @@ secondary_prediction:
         url:    /2020/07/05/32RNAClass.html
       - title:  Thermodynamics类分析
         url:    /2020/07/09/33ThermodynamicsClass.html
+      - title:  用最小自由能预测RNA二级结构
+        url:    /2020/07/10/34PredictionOfRNAStructure.html
       
 
 learnCpp:

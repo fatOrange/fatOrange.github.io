@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Thermodynamics类分析
-tags: [rna, secondary structure predict, 代码分析,Thermodynamics]
+tags: [rna, 二级结构预测, 代码分析,Thermodynamics]
 author: fatOrange
 aside:
   toc: true

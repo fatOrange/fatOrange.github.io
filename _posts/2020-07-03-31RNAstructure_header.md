@@ -1,7 +1,7 @@
 ---
 layout: article
 title: efn2头文件相关分析
-tags: [rna, secondary structure predict, 代码分析]
+tags: [rna,二级结构预测, 代码分析]
 author: fatOrange
 aside:
   toc: true
