@@ -107,20 +107,20 @@ RNA作为一种信息载体、催化剂和调节元件，可能反映了它在�
 
 ## 结论
 
-近两年来，利用自由能最小化方法预测RNA二级结构的研究取得了许多进展。最近的实验继续揭示了RNA环稳定性的序列依赖性。随着人们对这种序列相关性的了解越来越多，预测稳定性的最近邻规则可能会继续改变。正在探索新的实验方法来绘制二级结构图。计算方法通过利用映射实验中的信息约束结构预测、包括预测伪结碱基对以及通过找到一组同源序列共同的二级结构来提高结构预测精度。表1总结了新的和修订的计划。
+近两年来，利用自由能最小化方法预测RNA二级结构的研究取得了许多进展。最近的实验继续揭示了RNA环稳定性的序列依赖性。随着人们对这种序列相关性的了解越来越多，预测稳定性的最近邻规则可能会继续改变。正在探索新的实验方法来绘制二级结构图。计算方法通过利用映射实验中的信息约束结构预测、[包括预测伪结碱基对以及通过找到一组同源序列共同的二级结构来提高结构预测精度](http://rna.urmc.rochester.edu)。表1总结了新的和修订的计划。
 
 RNA二级结构预测软件的研究进展
 
 | 优势                                             | 程序         | 地址                                                         |
 | ------------------------------------------------ | ------------ | ------------------------------------------------------------ |
 | 利用碱基对概率的彩色注释确定高置信度预测的碱基对 | RNAstructure | [http://rna.urmc.rochester.edu](http://rna.urmc.rochester.edu) |
-| 二次抽样预测                                     | SFold        | http://sfold.wadsworth.org                                   |
-| 伪节点的迭代循环匹配预测                         | ILM          | http://www.bioinfo.rpi.edu/applications/sfold                |
-| 伪节点的启发式预测                               | HotKnots     | http://www.cs.ubc.ca/labs/beta/Software/HotKnots             |
-| 用抽象形状确定多个序列共有的二级结构             | RNAcast      | http://bibiserv.techfak.uni-bielefeld.de/rnacast/supplementary.html |
-| 两个未对齐序列共有的RNA二级结构预测              | FOLDALIGN    | http://foldalign.kvl.dk                                      |
-| 两个未对齐序列共有的RNA二级结构预测              | Dynalign     | http://rna.urmc.rochester.edu                                |
-| ncRNA基因的发现                                  | RNAz         | http://www.tbi.univie.ac.at/~wash/RNAz                       |
+| 二次抽样预测                                     | SFold        | [http://sfold.wadsworth.org](http://sfold.wadsworth.org)     |
+| 伪节点的迭代循环匹配预测                         | ILM          | [http://www.bioinfo.rpi.edu/applications/sfold](http://www.bioinfo.rpi.edu/applications/sfold) |
+| 伪节点的启发式预测                               | HotKnots     | [http://www.cs.ubc.ca/labs/beta/Software/HotKnots](http://www.cs.ubc.ca/labs/beta/Software/HotKnots) |
+| 用抽象形状确定多个序列共有的二级结构             | RNAcast      | [http://bibiserv.techfak.uni-bielefeld.de/rnacast/supplementary.html](http://bibiserv.techfak.uni-bielefeld.de/rnacast/supplementary.html) |
+| 两个未对齐序列共有的RNA二级结构预测              | FOLDALIGN    | [http://foldalign.kvl.dk](http://foldalign.kvl.dk)           |
+| 两个未对齐序列共有的RNA二级结构预测              | Dynalign     | [http://rna.urmc.rochester.edu](http://rna.urmc.rochester.edu) |
+| ncRNA基因的发现                                  | RNAz         | [http://www.tbi.univie.ac.at/~wash/RNAz](http://www.tbi.univie.ac.at/~wash/RNAz) |
 
 此表总结了二级结构预测的主要发展，列出了实现程序，并提供了下载或在线使用软件的URL。
 
