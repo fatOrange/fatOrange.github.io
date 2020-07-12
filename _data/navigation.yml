@@ -69,6 +69,8 @@ secondary_prediction:
         url:    /2020/07/09/33ThermodynamicsClass.html
       - title:  用最小自由能预测RNA二级结构
         url:    /2020/07/10/34PredictionOfRNAStructure.html
+      - title:  热力学参数序列相关性的扩展提高了RNA二级结构的预测能力
+        url:   /2020/07/12/35Expanded_Sequence_Dependence_of_Thermodynamic.html
       
 
 learnCpp:
