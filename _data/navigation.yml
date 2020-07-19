@@ -73,10 +73,10 @@ secondary_prediction:
         url:   /2020/07/12/35Expanded_Sequence_Dependence_of_Thermodynamic.html
       
 
-learnCpp:
-  - title:      c++知识点
+Binary_Analysis:
+  - title:      二进制分析
     children:
-      - title:  c++ Tips
-        url:    /2020/07/06/41cppTips.html
+      - title:  ELF文件类型
+        url:    /2020/07/19/42ELFFileType.html
       # - title:  RNA类分析
       #   url:    /2020/07/05/32RNAClass.html

@@ -7,8 +7,9 @@
   <div class="license">
     <p>{{ _license_announce | replace: "[LICENSE]", _license_name }}
       <a rel="license" href="{{ include.license.url }}">
-        <img alt="{{ include.license.name }}" src="{{ include.license.image }}" />
+        <!-- <img alt="{{ include.license.name }}" src="{{ include.license.image }}" /> -->
       </a>
+      <br>转载请署名，且不得用于商业用途，禁止修改转载。
     </p>
   </div>
 {%- endif -%}
