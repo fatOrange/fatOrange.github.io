@@ -1,16 +1,18 @@
 ---
 layout: article
 title: ELF文件类型
-tags: [C++]
+tags: [C++,ELF]
 author: fatOrange
 aside:
   toc: true
 sidebar:
   nav: Binary_Analysis
 ---
-现在 PC 平台流行的**可执行文件格式(executable)**主要是 windows 下的 PE(Portable Executable) 和Linux 下的 ELF(Executable Linkable Format) ,他们都是 COFF(Common file format) 的变种。目标文件和可执行文件的结构相似，可以和可执行文件格式一起存储(见图)。广义来说，可以讲这两文件看作一种文件。在 windows 下称他们为 PE-COFF 文件格式，Linux 下称为 ELF文件。
+现在 PC 平台流行的**可执行文件格式(executable)**主要是 windows 下的 PE(Portable Executable) 和Linux 下的 ELF(Executable Linkable Format) ,他们都是 **COFF(Common file format)** 的变种。目标文件和可执行文件的结构相似，可以和可执行文件格式一起存储(见图)。广义来说，可以讲这两文件看作一种文件。在 windows 下称他们为 PE-COFF 文件格式，Linux 下称为 ELF文件。
 
 [![URIk5t.png](https://s1.ax1x.com/2020/07/19/URIk5t.png)](https://imgchr.com/i/URIk5t)
+
+> COFF 是由Unix System V Release 3 首先提出并且使用的格式，微软公司基于 COFF 制定了 PE 格式标准，并用于 WindowsNT 系统中，System V Release 4 给予 COFF 制定了ELF格式，并沿用至今(System V Release 5)。因为PE和ELF格式都是源自于同一种可执行文件格式 COFF，所以他们如此相似。
 
 具体的，一个ELF文件可以被标记为一下几种类型之一：
 
