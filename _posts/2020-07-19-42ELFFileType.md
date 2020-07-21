@@ -8,11 +8,14 @@ aside:
 sidebar:
   nav: Binary_Analysis
 ---
+
+### 可执行文件格式类型
+
 现在 PC 平台流行的**可执行文件格式(executable)**主要是 windows 下的 PE(Portable Executable) 和Linux 下的 ELF(Executable Linkable Format) ,他们都是 **COFF(Common file format)** 的变种。目标文件和可执行文件的结构相似，可以和可执行文件格式一起存储(见图)。广义来说，可以讲这两文件看作一种文件。在 windows 下称他们为 PE-COFF 文件格式，Linux 下称为 ELF文件。
 
-[![URIk5t.png](https://s1.ax1x.com/2020/07/19/URIk5t.png)](https://imgchr.com/i/URIk5t)
+![URIk5t.png](https://s1.ax1x.com/2020/07/19/URIk5t.png)
 
-> COFF 是由Unix System V Release 3 首先提出并且使用的格式，微软公司基于 COFF 制定了 PE 格式标准，并用于 WindowsNT 系统中，System V Release 4 给予 COFF 制定了ELF格式，并沿用至今(System V Release 5)。因为PE和ELF格式都是源自于同一种可执行文件格式 COFF，所以他们如此相似。
+COFF 是由Unix System V Release 3 首先提出并且使用的格式，微软公司基于 COFF 制定了 PE 格式标准，并用于 WindowsNT 系统中，System V Release 4 给予 COFF 制定了ELF格式，并沿用至今(System V Release 5)。因为PE和ELF格式都是源自于同一种可执行文件格式 COFF，所以他们如此相似。
 
 具体的，一个ELF文件可以被标记为一下几种类型之一：
 
@@ -33,6 +36,8 @@ sidebar:
 在 Linux 下，使用 `file` 命令或者`readelf -h` 来查看相应的文件格式，上面几种文件格式在这两个命令下会显示出相应的格式。
 
 使用`readelf -h` 除了可以查看文件格式，还可以看到原始的 ELF 文件头。ELF 文件头从文件的0偏移量开始，标记了 ELF 文件类型、结构和程序开始执行的入口地址，并提供了其他 ELF 头(节头和程序头)的偏移量。
+
+### 结构和输出
 
 ELF头部结构：
 
@@ -59,7 +64,9 @@ typedef struct elfhdr {
 
 这里只是展示ELF的作用是了解 `readelf -h` 是如何输出的，具体的会在后面讲解。
 
-参考文献：
+![Uo7dCF.png](https://s1.ax1x.com/2020/07/21/Uo7dCF.png)
+
+### 参考文献
 
 https://refspecs.linuxbase.org/elf/gabi4+/
 
