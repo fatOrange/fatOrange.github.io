@@ -199,7 +199,7 @@ SGI是万维网mfold服务器，一种硅图形计算机，有两个175mhzip30�
 {3'CUGG5'}
 \end{array}$ 的值是计算四个双工的平均值得来。
 
-确定G-U最近邻的方法和数据主要来自He等人(1991).考虑自互补双联，${({\rm{CGU}}\underline {{\rm{UG}}} {\rm{ACG}})_2}$ 其中下划线的核苷酸形成G-U对。加串联G-U对所贡献的稳定性分量 $\Delta G_{37}^\circ $(分量) 是通过取有G-U对和无G-U对的双联之间的稳定性差异，并加回因添加G-U对而断裂的堆栈的稳定性来计算：
+确定G-U最近邻的方法和数据主要来自He等人(1991).考虑自互补双联，${({\rm{CGU} }\underline { {\rm{UG}} } {\rm{ACG} })_2}$ 其中下划线的核苷酸形成G-U对。加串联G-U对所贡献的稳定性分量 $\Delta G_{37}^\circ $(分量) 是通过取有G-U对和无G-U对的双联之间的稳定性差异，并加回因添加G-U对而断裂的堆栈的稳定性来计算：
 $$
 \begin{array}{c}
 \Delta G_{37}^\circ (component) = \Delta G_{37}^\circ (CGU\underline {UG} ACG)\\
@@ -213,7 +213,7 @@ $$
 式中 $\Delta G_{37}^\circ (CGU\underline {UG} ACG)$ 是由光学熔化确定的双相形成的自由能，$\Delta G_{37}^\circ (CGUACG)$ 是由Xia等人的INN-HB最近邻参数预测的双原子形成的自由能.（1998年）.$\Delta G_{37}^\circ (component)$（分量）的值等于分量最近邻的自由能增量之和。
 $$
 \begin{array}{c}
-\Delta G_{37}^\circ (component) = 2\Delta G_{37}^\circ (\begin{array}{*{20}{c}}
+\Delta G_{37}^\circ (component) = 2\Delta G_{37}^\circ (\begin{array}{*{20}{c} }
 {5'UU3'}\\
 {3'AU5'}
 \end{array})\\
@@ -229,11 +229,64 @@ $$
 {3'AU5'}
 \end{array})$  在这个序列中出现了两次，请注意，相邻项在序列中出现两次，关闭串联G-U不匹配的两侧。 在INN-HB模型中，终端G-U对的处理方式与终端A-U对一样，即由于它们有两个氢键，所以被惩罚0.45千卡/摩尔。用类似的方法计算焓和熵变化的最近邻参数。
 
+表5列出了用于拟合G-U最近邻参数和模型预测的自由能的数据。 回归的确定系数R2为0.85，表明该模型解释了所观察到的稳定性变化的约85％。 为了预测二级结构，$\begin{array}{*{20}{c}}
+{5'GU3'}\\
+{3'UG5'}
+\end{array}$  的不利值被设定为1.45 kcal / mol（表4）。但是当栈$\begin{array}{*{20}{c}}
+{5'GGUC3'}\\
+{3'CUG{\rm{G}}5'}
+\end{array}$ 出现时，它有效地分配了有利的自由能，因为在2X2内部回路的单独表格中，整个修饰被分配为$\Delta {\rm{G}}{^\circ _{37}}$ 下的 -4.1kal/mol.
 
+最近的邻居 $\begin{array}{*{20}{c}}
+{5'GG3'}\\
+{3'UU5'}
+\end{array}$ 仅在一个测量的双工中，因此因拟合而具有较大的标准误差。表4中列出的正（不利）$\Delta {\rm{G}}{^\circ _{37}}$ 与有利值相比降低了结构预测算法的准确性。因此二级结构预测中， $\begin{array}{*{20}{c}}
+{5'GG3'}\\
+{3'UU5'}
+\end{array}$ 被设定为一个有利值，考虑误差大小的合理估计。
+
+#### 悬空的末端和末端不匹配
+
+悬空末端和不匹配的参数不受最近邻居模型变化的影响。 与Watson-Crick对相邻的未配对核苷酸的自由能参数取自先前的文献（Serra＆Turner，1995）。 将端子G-U对上的悬空端视为与端子A-U对上的悬空端一样，用A代替G.对于与G-U对相邻的末端错配，已知几种稳定性（Giese等，1998）。在一种情况下，$\begin{array}{*{20}{c}}
+{5'UA3'}\\
+{3'GA5'}
+\end{array}$  失配，未测量缺少末端失配的参考螺旋的稳定性。 因此，参考螺旋是使用Xia等人的Watson-Crick参数来计算的。  （1998）和表4中的G-U参数。然后，由于悬空端而提高了稳定性，计算公式为：
+$$
+\Delta {G_{37^\circ }}(\begin{array}{*{20}{c}}
+{5'UA3'}\\
+{3'GA5'}
+\end{array}) = \frac{ {\Delta {G_{37^\circ } }(\begin{array}{*{20}{c} }
+{5'AGCGUA3'}\\
+{3'AUGCGA5'}
+\end{array}) - \Delta {G_{37^\circ } }(\begin{array}{*{20}{c} }
+{5'AGCG3'}\\
+{3'AUGC5'}
+\end{array})} }{2} = \frac{ { - 4.0 + 2.0} }{2} =  - 1.0kcal/mol
+$$
+末端不匹配的双链体的自由能为-4.0 kcal / mol，来自Giese等。  （1998）。 对于未测量的与G-U对相邻的末端不匹配，其稳定性近似为与A-U对相邻的不匹配的稳定性，使得A取代G.
+
+#### Hairpin loops
+
+预测发夹环稳定性的参数来自茎环稳定性的实验数据（Giese等，1998； Serra等，1993，1994，1997； Groebe＆Uhlenbeck，1988），减去用 INN-HB最近邻居模型（Xia等，1998）。 长于三个未配对核苷酸的发夹环的稳定性基于环长度以及闭合碱基对和第一个错配的序列进行估算:
+$$
+\begin{array}{c}
+\Delta {G_{37^\circ loop}}(n > 3)  =  \Delta {G_{37^\circ }}_{initiation}{\rm{(n)}} + \Delta {G_{37^\circ }}({\rm{stack of the first mismatch}})\\
+ + \Delta {G_{37^\circ bonus}}({\rm{UU or GA first mismatch,but not AG}})\\
+ + \Delta {G_{37^\circ bonus}}({\rm{special GU closure}})\\
+ + \Delta {G_{37^\circ penalty}}({\rm{oligo - C loops}})
+\end{array}
+$$
+其中n是环中核苷酸的数目。$\Delta {G_{37^\circ }}_{initiation}{\rm{(n)}}$ 的值在表6中给出。对于小于四个核苷酸的环，不包括第一次错配和自由能加成，这是因为假定这些环太受约束而无法在双链体末端进行相同的堆叠。
+
+三的环路稳定性的序列独立性支持了这一假设（Serra等，1997）。
+
+------
+
+表4
 
 | 近邻                                                         | $\Delta G_{37}^\circ (kcal/mol)$ | 误差 | $\Delta H^\circ (kcal/mol)$ | 误差 | $\Delta S^\circ {(eu)^c}$ | $Erro{r^c}$ |
 | ------------------------------------------------------------ | -------------------------------- | ---- | --------------------------- | ---- | ------------------------- | ----------- |
-| $\begin{array}{*{20}{c}}{5'AG3'}\\{3'UU5'}\end{array}$       | -0.55                            | 0.32 | -3.21                       | 2.76 | -8.6                      | 8.45        |
+| $ \begin{array}{*{20}{c}}{5'AG3'}\\{3'UU5'}\end{array} $     | -0.55                            | 0.32 | -3.21                       | 2.76 | -8.6                      | 8.45        |
 | $\begin{array}{*{20}{c}}{5'AU3'}\\{3'UG5'}\end{array}$       | -1.36                            | 0.24 | -8.81                       | 2.10 | -24.0                     | 6.44        |
 | $\begin{array}{*{20}{c}}{5'CG3'}\\{3'GU5'}\end{array}$       | -1.41                            | 0.24 | -5.61                       | 2.13 | -13.5                     | 6.53        |
 | $\begin{array}{*{20}{c}}{5'CU3'}\\{3'GG5'}\end{array}$       | -2.11                            | 0.25 | -12.11                      | 2.22 | -32.2                     | 6.81        |
@@ -253,9 +306,38 @@ b: 对于二级结构预测而言， $\begin{array}{*{20}{c}}{5'GG3'}\\{3'UU5'}\
 
 c: $\Delta S^\circ $ 的计算公式是 $\Delta S^\circ  = (\Delta H^\circ  - \Delta G{^\circ _{37}})/(310.15K)$.$\Delta S^\circ $ 中的误差来自线性回顾
 
-d: 末端G-U对是螺旋末端的G-U，包括发夹、内部环、连接和带有一个以上核苷酸的凸起处的G-U对。假设终端G-U参数与终端A-U参数相同由Xia等(1998)推导
+d: 末端G-U对是螺旋末端的G-U，包括发夹、内部环、连接和带有一个以上核苷酸的凸起处的G-U对。假设终端G-U参数与终端A-U参数相同由Xia等(1998)推导。
 
 ------
 
 [![ak5VvF.png](https://s1.ax1x.com/2020/07/28/ak5VvF.png)](https://imgchr.com/i/ak5VvF)
+
+以G-U的碱基是用下划线的，对于非自匹配的序列，只有一个碱基束用(/)表示
+
+a 衡量双旋的稳定性来自:A, Sugimoto et al. (1986); B, He et al. (1991); C, R.K., unpublished data; D,McDowell et al. (1997); E, Wu et al. (1995); F, Xia et al. (1997); G, McDowell & Turner (1996); H, Freier et al. (1986a); and I, S. J.Schroeder (unpublished data).
+
+------
+
+[![am3qo9.md.png](https://s1.ax1x.com/2020/07/29/am3qo9.md.png)](https://imgchr.com/i/am3qo9)
+
+初始值是类似函数给的， 禁止少于三个核苷酸的发夹。 超过9个循环的发夹起始近似为：
+$$
+\Delta {G_{37^\circ initiation} }(n > 9) = \Delta {G_{37^\circ initiation} }(9) + 1.75RT\ln (n/9)
+$$
+发夹环的自由能由以下公式估算：
+$$
+\begin{array}{c}
+\Delta {G_{37^\circ } }(n > 3) = \Delta {G_{37^\circ initiation} }(n) + \Delta {G_{37^\circ } }({\rm{stacking of the first mismatch} }) + \Delta {G_{37^\circ bonus} }({\rm{UU or GA first mismatch} })\\
+ + \Delta {G_{37^\circ bonus}}({\rm{special GU closure} }) + \Delta {G_{37^\circ penalty} }({\rm{poly - C loops} })
+\end{array}
+$$
+$\Delta {G_{37^\circ penalty} }({\rm{poly - C loops} })$ 在环只有3个情况下是1.4kcal/mol,或者其他情况下由以下公式决定:
+$$
+\Delta {G_{37^\circ penalty} }({\rm{poly - C loops,n > 3} }) = An + B
+$$
+特殊的G-U闭合仅适用于具有5'闭合G且之前带有两个G残基的发夹。  GA先失配的加成仅适用于G在发夹环5'端的发夹环。
+
+a $\Delta {G_{37^\circ bonus} }$ 该项不适用于AG首次不匹配的发夹。奖金适用于UU和GA的循环（循环的50侧的G和循环的30侧的A）首先不匹配的循环。
+
+------
 
