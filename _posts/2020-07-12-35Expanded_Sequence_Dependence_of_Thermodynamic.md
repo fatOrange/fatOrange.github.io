@@ -10,7 +10,7 @@ sidebar:
 ---
 本文提出了一种改进的动态规划算法，用于预测RNA二级结构。对二级结构模体稳定性的热力学参数进行了修正，以包括最近实验所揭示的扩展序列依赖性。其他算法改进包括减少搜索时间和多分支回路自由能的存储，以及改进折叠约束的施加。一个扩展数据库151503nt在955结构？通过比较序列分析确定装配参数，使参数优化不基于实验，并测试算法的准确性。平均而言，当小于700nt的域被折叠时，预测的最低自由能结构包含73%的已知碱基对；而之前版本的算法和参数的准确率为64%。对于一个给定的序列，一组750个生成的结构包含一个平均有86%的已知碱基对的结构。由酶切和鸟苷单核苷酸切割产生的实验约束提高了结构预测的准确性。
 
-## 介绍
+# 介绍
 
 数据库分析的一个重要领域是从序列.RNA结构特别适合于预测，因为它通常分为两个复杂程度。第一级是二级结构，涉及规范的碱基对。它是离散的，因为每个核苷酸要么成对，要么没有。控制二级结构的相互作用通常比决定下一级结构复杂性的相互作用，即三级结构，即三维形状（Banerjee等人，1993年；Jaeger等人，1993年；Laing&Draper，1994年；Crothers等人，1974年；Hilbers等人，1976年；Mathews等人，1997年）。因此，二级结构在很大程度上可以独立于三级结构来确定。三级结构是理解结构和功能的额外细节层次（Cate et al.，1996；Correl et al.，1997；Michel&Westhof，1990；Massire et al.，1998；Harris et al.，1997）。最后，可能从二级结构元素的相互作用中推断出三级结构。
 
@@ -20,9 +20,9 @@ sidebar:
 
 在这里，我们提出了一种通过自由能最小化进行RNA二级结构预测的增强算法。新的实验结果表明，自由能参数比以前实现的更依赖于序列，特别是Watson-Crick配对螺旋的新模型(Xia等，1998)和系统性的研究。特别是Watson-Crick配对螺旋的新模型(Xia等人，1998)和发夹环(Giese等人，1998；Serra等人，1993，1994，1997；Groebe & Uhlenbeck，1988)、小内环(Schroeder等人，1996；Xia等人，1997)和同轴堆叠螺旋(Kim等人，1996；Walter等人，1994a，b)的稳定性的系统研究。基于这些数据，调整热力学参数，并对算法中的几个基团扩大稳定性的序列依赖性。额外的序列依赖性增加了程序中的参数数量；因此，通过利用主要通过万维网访问的已知二级结构的大型数据库对程序和参数进行了测试和改进(Gutell，1994；Gutell等，1993；Schnare等，1996；Szymanski等，1998；Sprinzl等，1998；Larsen等，1998；Brown，1998；Damberger&Gutell，1994；Michel等，1989；Waring&Davies，1984)。这种广泛的测试是可能的，因为加速多分支循环搜索的算法的改进，也因为计算机技术的革命。廉价的个人计算机现在具有预测相当长度的序列的RNA二级结构所需的速度和内存(Mathews等人，1998)。此外，在算法中改进了折叠约束的执行情况，而且从酶和avin单核苷酸(FMN)裂解中得出的实验约束也显示出可以进一步提高结构预测的准确性。
 
-## 结果
+# 结果
 
-### 热力学参数
+## 热力学参数
 
 基于新的实验数据，我们调整了许多基序的自由能参数，使之包含扩展的序列依赖性。本文简要总结了这些变化，并在方法中给出了推导的完整细节。
 
@@ -37,7 +37,7 @@ Burkard和D.H.T.，未发表的结果）分别用包含每个可能序列变化�
 
 此外，还扩展了多分支回路的序列依赖性。通过比较比以前使用的序列大得多的一组序列的预测和已知二级结构来推导起始参数（Jaeger et al.，1989）。使用两组参数，一组用动态规划算法生成一组可能的结构，另一组用基于自由能的结构重新排序更完整的能量规则，包括同轴叠加。基于Kim等人的工作，将同轴叠加扩展到包括所有干涉的单失配。（1996年）。在环路外也允许同轴堆叠。
 
-### 准确度
+## 准确度
 
 通过预测RNAs的二级结构与序列比较确定的结构来检验该算法的准确性。由22个小亚单位rRNA(Gutell，1994)、5个大亚单位rRNA(Gutell等，1993；Schnare等，1996)、309个5 S rRNA(Szymanski等，1998)、484个tRNA(Sprinzl等。1998）、91个SRP RNAs（Larsen等，1998）、16个RNase P RNAs（Brown，1998）、25个I组内含子（Damberger & Gutell，1994；Waring & Davies，1984）和3个II组内含子（Michel等，1989）被组装起来以测试算法并重新®ne热力学参数。
 
@@ -77,7 +77,7 @@ Burkard和D.H.T.，未发表的结果）分别用包含每个可能序列变化�
 
 对于当前的参数集，计算出最低自由能结构与最佳次优结构之间的平均自由能差%。
 
-### 最小自由能结构的快速计算
+## 最小自由能结构的快速计算
 
 更快的多分支循环搜索和内存更大的计算机加速了二级结构预测。表2给出了二级结构预测时间与RNA长度、计算机和多分支循环搜索算法的函数。后者对长序列的影响最大。例如，在Pentium II 233 MHz个人计算机上，折叠大肠杆菌小亚基rRNA所需的时间从26分钟减少到13分钟。方法中解释了这种改进的计算细节。
 
@@ -98,13 +98,13 @@ SGI是万维网mfold服务器，一种硅图形计算机，有两个175mhzip30�
 
 
 
-### FMN解理约束及其改进的约束强化
+## FMN解理约束及其改进的约束强化
 
 最近的研究表明，黄素单核苷酸(FMN)在涉及G-U碱基对的U残基上专门对RNA进行光解(Burgstaller等人，1997年；Burgstaller和Famulok，1997年)。这样的实验数据为RNA可能的二级结构提供了巨大的约束条件。到利用这一点，对算法进行了修改，要求指定的U残基是G-U碱基对。
 
 折叠算法的早期版本使用加成能量来执行约束，这些约束要求形成某些碱基对或指定的核苷酸为双链。 在结构生成过程中减去了额外的能量，以便为每个结构报告正确的能量。 然而，额外的能量扭曲了代表结构信息的点图（Zuker，1989），并使得计算次优结构的代表性样本变得困难。 通过禁止所有可能的替代品来实施碱基对，可以纠正这种缺陷。 这些改进的详细信息在“方法”中进行了描述。
 
-### 实验约束改善二次结构预测
+## 实验约束改善二次结构预测
 
 为了验证二级结构预测在酶切和FMN裂解实验条件下可以改进的假设，从文献中提取了四个测试实例。这些是T4 td内含子的FMN光切（Burgstaller et al.，1997；Jaeger et al.，1993）和酿酒酵母RNase P RNA的酶切（Tranguch et al.，1994；Tranguch&Engelke，1993），大肠杆菌的5 S RNA（Speek&Lind；1982；Szymanski et al.，1998）和E。科利（Kean&Draper，1985；Gutell，1994）。每一个RNA都被预测有限制和没有限制。与已知结构相比，这些预测的准确性如表3所示。
 
@@ -138,7 +138,7 @@ SGI是万维网mfold服务器，一种硅图形计算机，有两个175mhzip30�
 
 ------
 
-## 讨论
+# 讨论
 
 自由能最小化是确定二级结构的有效工具，它有助于在比较分析中识别重要的区域,并且可以在一个序列的情况下使用。它可以促进酶和化学修饰数据的解释（Ehresmann等人，1987年；Knapp等人，1989年）。预测结构的更精确区域可以通过能量点图（Zuker&Jacobson，1995）或统计分析（Huynen et al.，1997）确定，并且这些可靠性信息可用于注释预测结构（Zuker&Jacobson，1998）。
 
@@ -156,15 +156,15 @@ SGI是万维网mfold服务器，一种硅图形计算机，有两个175mhzip30�
 
 二级结构预测算法有三种形式。®RST是一个C++程序，RNeStices 3，用于Windows 98、Windows 95或Windows NT，可在万维网上的Turner-Lab主页上使用（http:// rna.chem.rochester.edu)）。第二个是mfold包，它是FORTRAN和C程序的集合，用于预测折叠和点图，在ftp://snark.wustl.edu。此版本也可作为联机web服务器提供(http://www.ibc.wustl.edu/~zuker/rna/form1.cgi）链接到M.zuker的主页。
 
-## 方法
+# 方法
 
-### 预测结构的方法
+## 预测结构的方法
 
 二次结构是利用Zuker（1989）的动态编程算法从序列中生成的。对于每个序列，最多可生成750个次优结构，其自由能与最低自由能相差20%。窗口大小设置为0，以允许预测具有微妙变化的结构。第二种算法efn2用于重新计算每个次优结构的自由能，并对多支环路有更完整的能量规则。这些规则包括同轴堆叠和启动对数依赖未配对核苷酸的数量。然后用efn2计算的自由能按稳定性对结构进行重新排序。 efn2重排后的最低自由能结构用于最低自由能结构的评分精度（表1）。
 
 这个版本的动态编程算法通过给它们分配一个大的自由能惩罚（1600千卡/摩尔）来过滤掉孤立的碱基对。如果核苷酸i和j之间的碱基对在核苷酸i+1和j-1以及核苷酸i-1和j+1之间都不可能配对，则认为该碱基对是孤立的。
 
-### 二级结构数据库
+## 二级结构数据库
 
 该算法使用已知二级结构的序列进行测试（Gutell，1994；Gutell等人，1993；Schnare等人，1996；Szymanski等人，1998；Sprinzl等人，1998；Larsen等人，1998；Brown，1998；Damberger&Gutell，1994；Michel等人，1989；Waring&Davies，1984）。补充材料列出了955个特定的结构、它们的来源和折叠的域。
 
@@ -172,39 +172,55 @@ SGI是万维网mfold服务器，一种硅图形计算机，有两个175mhzip30�
 
 对于tRNA来说，修改后的核苷酸如果不能适应A型螺旋，就会被算法强制为单链。不允许配对的修饰核苷酸有。N6-(顺式-羟基异戊烯基)腺苷、赖氨酸、1-甲基鸟苷、N2,N2,20-O-三甲基鸟苷、弓形核苷、甘露糖基-奎核苷、半乳糖基-奎核苷、怀丁苷、过氧怀丁苷。3-(3-氨基3-羧丙基)尿苷、二氢尿苷、5，20-O-二甲基尿苷、2-甲基腺苷、2-甲硫基-N6-磺酰氨基腺苷、肌苷、1-甲基肌苷和20-O-核糖基腺苷。
 
-### 二级结构预测的评分和假结基对的计数。
+## 二级结构预测的评分和假结基对的计数。
 
 通过与比较序列分析确定的碱基对进行比较，对预测的二级结构进行评分。如果已知的碱基对出现在预测的结构中，或者如果预测的结构中包含的碱基对在碱基对的一侧最多偏移一个核苷酸，则认为预测正确。例如，已知的核苷酸i和j之间的碱基对被认为是正确的预测，其碱基对为i至j、i至j - 1、i至j + 1、i - 1至j或i + 1至j。然而，预测的碱基对为i + 1至j - 1则不被认为是正确的。滑落的螺旋是罕见的，被认为是正确的，因为通过比较序列分析确定准确的配对方案或通过自由能最小化来预测它是困难的。
 
 表1中的假节点中的碱基对由一个计算机程序计算，该程序首先确定碱基对对i-j和k-l的所有出现，即i<k<j<l。这个最少的基对数被用来计算表1中给出的假结基对的百分比。
 
-### 热力学参数的推导和实现
+## 热力学参数的推导和实现
 
-#### Watson-Crick pairs
+### Watson-Crick pairs
 
 夏等人(1998)用INN-HB最近邻模型对具有Watson-Crick对的螺旋区域的稳定性进行了分配。该模型在先前的最近邻模型(Freier等人，1986b；Borer等人，1974)的基础上进行了扩展，为螺旋中的每个末端A-U或U-A对加入了一个惩罚项。这说明了氢键数目对碱基组成的依赖性(Xia等人，1998)。
 
 为了实现末端A-U惩罚项，有必要对二级结构预测算法进行修改。该惩罚与螺旋线终止的环的自由能一起加入到自由能中。对于内环和发夹环，惩罚项包含在程序所包含的终端错配堆积数据表中。对于长于一个核苷酸的隆起环，算法明确地检查每个闭合对，必要时应用末端A-U惩罚。对于多分支环和外部环的自由能计算，动态编程算法(Zuker & Stiegler，1981；Zuker，1989)的填充和回溯步骤中的修改是必要的。如果需要的话，对于从环路辐射出来的每一个螺旋，都要加上惩罚项，c1或c2。在efn2算法中，即使螺旋线是同轴堆叠的，也要进行惩罚。
 
-#### G-U近邻
+### G-U近邻
 
-螺旋RNA中G-U对的堆积的最近邻自由能参数，表4，由实验确定的稳定性线性回归得出(He等，1991；Sugimoto等，1986；Xia等，1997；Freier等，1986a；Wu等，1995；McDowell&Turner，1996；R.Kierzek，未发表数据；S.J.Schroeder，未发表数据)。$\begin{array}{*{20}{c}}{5'GU3'}\\{3'UG5'}\end{array}$ 结构不适合最近邻模型，除非 $\begin{array}{*{20}{c}}
+螺旋RNA中G-U对的堆积的最近邻自由能参数，表4，由实验确定的稳定性线性回归得出(He等，1991；Sugimoto等，1986；Xia等，1997；Freier等，1986a；Wu等，1995；McDowell&Turner，1996；R.Kierzek，未发表数据；S.J.Schroeder，未发表数据)。
+$$
+\begin{array}{*{20}{c} }{5'GU3'}\\{3'UG5'}\end{array}
+$$
+ 结构不适合最近邻模型，除非 
+$$
+\begin{array}{*{20}{c} }
 {5'GGUC3'}\\
 {3'CUGG5'}
-\end{array}$ 这种结构双工结构是可以忽略的，因此，在计算线性回归时，不计算含有 $\begin{array}{*{20}{c}}
+\end{array}
+$$
+这种结构双工结构是可以忽略的，因此，在计算线性回归时，不计算含有
+$$
+\begin{array}{*{20}{c} }
 {5'GGUC3'}\\
 {3'CUGG5'}
-\end{array}$ 该基团的序列。$\begin{array}{*{20}{c}}
+\end{array}
+$$
+该基团的序列。
+$$
+\begin{array}{*{20}{c} }
 {5'GGUC3'}\\
 {3'CUGG5'}
-\end{array}$ 的值是计算四个双工的平均值得来。
+\end{array}
+$$
+的值是计算四个双工的平均值得来。
 
-确定G-U最近邻的方法和数据主要来自He等人(1991).考虑自互补双联，${({\rm{CGU} }\underline { {\rm{UG}} } {\rm{ACG} })_2}$ 其中下划线的核苷酸形成G-U对。加串联G-U对所贡献的稳定性分量 $\Delta G_{37}^\circ $(分量) 是通过取有G-U对和无G-U对的双联之间的稳定性差异，并加回因添加G-U对而断裂的堆栈的稳定性来计算：
+确定G-U最近邻的方法和数据主要来自He等人(1991).考虑自互补双联，${({\rm{CGU} }\underline { {\rm{UG} } } {\rm{ACG} })_2}$ 其中下划线的核苷酸形成G-U对。加串联G-U对所贡献的稳定性分量 $\Delta G_{37}^\circ $(分量) 是通过取有G-U对和无G-U对的双联之间的稳定性差异，并加回因添加G-U对而断裂的堆栈的稳定性来计算：
 $$
 \begin{array}{c}
 \Delta G_{37}^\circ (component) = \Delta G_{37}^\circ (CGU\underline {UG} ACG)\\
-{\rm{ - }}\Delta G_{37}^\circ (CGUACG)\\
- + \Delta G_{37}^\circ (\begin{array}{*{20}{c}}
+{\rm{ - } }\Delta G_{37}^\circ (CGUACG)\\
+ + \Delta G_{37}^\circ (\begin{array}{*{20}{c} }
 {5'UA3'}\\
 {3'AU5'}
 \end{array})
@@ -217,42 +233,62 @@ $$
 {5'UU3'}\\
 {3'AU5'}
 \end{array})\\
- + \Delta G_{37}^\circ (\begin{array}{*{20}{c}}
+ + \Delta G_{37}^\circ (\begin{array}{*{20}{c} }
 {5'UG3'}\\
 {3'GU5'}
 \end{array})
 \end{array}
 $$
 
-注意, $\Delta G_{37}^\circ (\begin{array}{*{20}{c}}
+注意, 
+$$
+\Delta G_{37}^\circ (\begin{array}{*{20}{c} }
 {5'UU3'}\\
 {3'AU5'}
-\end{array})$  在这个序列中出现了两次，请注意，相邻项在序列中出现两次，关闭串联G-U不匹配的两侧。 在INN-HB模型中，终端G-U对的处理方式与终端A-U对一样，即由于它们有两个氢键，所以被惩罚0.45千卡/摩尔。用类似的方法计算焓和熵变化的最近邻参数。
+\end{array})
+$$
+  在这个序列中出现了两次，请注意，相邻项在序列中出现两次，关闭串联G-U不匹配的两侧。 在INN-HB模型中，终端G-U对的处理方式与终端A-U对一样，即由于它们有两个氢键，所以被惩罚0.45千卡/摩尔。用类似的方法计算焓和熵变化的最近邻参数。
 
-表5列出了用于拟合G-U最近邻参数和模型预测的自由能的数据。 回归的确定系数R2为0.85，表明该模型解释了所观察到的稳定性变化的约85％。 为了预测二级结构，$\begin{array}{*{20}{c}}
+表5列出了用于拟合G-U最近邻参数和模型预测的自由能的数据。 回归的确定系数R2为0.85，表明该模型解释了所观察到的稳定性变化的约85％。 为了预测二级结构，
+$$
+\begin{array}{*{20}{c} }
 {5'GU3'}\\
 {3'UG5'}
-\end{array}$  的不利值被设定为1.45 kcal / mol（表4）。但是当栈$\begin{array}{*{20}{c}}
+\end{array}
+$$
+的不利值被设定为1.45 kcal / mol（表4）。但是当栈
+$$
+\begin{array}{*{20}{c} }
 {5'GGUC3'}\\
-{3'CUG{\rm{G}}5'}
-\end{array}$ 出现时，它有效地分配了有利的自由能，因为在2X2内部回路的单独表格中，整个修饰被分配为$\Delta {\rm{G}}{^\circ _{37}}$ 下的 -4.1kal/mol.
+{3'CUG{\rm{G} }5'}
+\end{array}
+$$
+ 出现时，它有效地分配了有利的自由能，因为在2X2内部回路的单独表格中，整个修饰被分配为$\Delta {\rm{G} }{^\circ _{37} }$ 下的 -4.1kal/mol.
 
-最近的邻居 $\begin{array}{*{20}{c}}
+最近的邻居
+$$
+\begin{array}{*{20}{c} }
 {5'GG3'}\\
 {3'UU5'}
-\end{array}$ 仅在一个测量的双工中，因此因拟合而具有较大的标准误差。表4中列出的正（不利）$\Delta {\rm{G}}{^\circ _{37}}$ 与有利值相比降低了结构预测算法的准确性。因此二级结构预测中， $\begin{array}{*{20}{c}}
+\end{array}
+$$
+仅在一个测量的双工中，因此因拟合而具有较大的标准误差。表4中列出的正（不利）$\Delta {\rm{G} }{^\circ _{37} }$ 与有利值相比降低了结构预测算法的准确性。因此二级结构预测中，
+$$
+\begin{array}{*{20}{c} }
 {5'GG3'}\\
 {3'UU5'}
-\end{array}$ 被设定为一个有利值，考虑误差大小的合理估计。
+\end{array}
+$$
+被设定为一个有利值，考虑误差大小的合理估计。
 
 #### 悬空的末端和末端不匹配
 
-悬空末端和不匹配的参数不受最近邻居模型变化的影响。 与Watson-Crick对相邻的未配对核苷酸的自由能参数取自先前的文献（Serra＆Turner，1995）。 将端子G-U对上的悬空端视为与端子A-U对上的悬空端一样，用A代替G.对于与G-U对相邻的末端错配，已知几种稳定性（Giese等，1998）。在一种情况下，$\begin{array}{*{20}{c}}
+悬空末端和不匹配的参数不受最近邻居模型变化的影响。 与Watson-Crick对相邻的未配对核苷酸的自由能参数取自先前的文献（Serra＆Turner，1995）。 将端子G-U对上的悬空端视为与端子A-U对上的悬空端一样，用A代替G.对于与G-U对相邻的末端错配，已知几种稳定性（Giese等，1998）。在一种情况下，$\begin{array}{*{20}{c} }
 {5'UA3'}\\
 {3'GA5'}
 \end{array}$  失配，未测量缺少末端失配的参考螺旋的稳定性。 因此，参考螺旋是使用Xia等人的Watson-Crick参数来计算的。  （1998）和表4中的G-U参数。然后，由于悬空端而提高了稳定性，计算公式为：
 $$
-\Delta {G_{37^\circ }}(\begin{array}{*{20}{c}}
+\Delta {G_{37^\circ } }(\begin{array}{*{20}{c} }
 {5'UA3'}\\
 {3'GA5'}
 \end{array}) = \frac{ {\Delta {G_{37^\circ } }(\begin{array}{*{20}{c} }
@@ -263,22 +299,70 @@ $$
 {3'AUGC5'}
 \end{array})} }{2} = \frac{ { - 4.0 + 2.0} }{2} =  - 1.0kcal/mol
 $$
+
+
 末端不匹配的双链体的自由能为-4.0 kcal / mol，来自Giese等。  （1998）。 对于未测量的与G-U对相邻的末端不匹配，其稳定性近似为与A-U对相邻的不匹配的稳定性，使得A取代G.
 
-#### Hairpin loops
+### Hairpin loops
 
 预测发夹环稳定性的参数来自茎环稳定性的实验数据（Giese等，1998； Serra等，1993，1994，1997； Groebe＆Uhlenbeck，1988），减去用 INN-HB最近邻居模型（Xia等，1998）。 长于三个未配对核苷酸的发夹环的稳定性基于环长度以及闭合碱基对和第一个错配的序列进行估算:
 $$
 \begin{array}{c}
-\Delta {G_{37^\circ loop}}(n > 3)  =  \Delta {G_{37^\circ }}_{initiation}{\rm{(n)}} + \Delta {G_{37^\circ }}({\rm{stack of the first mismatch}})\\
- + \Delta {G_{37^\circ bonus}}({\rm{UU or GA first mismatch,but not AG}})\\
- + \Delta {G_{37^\circ bonus}}({\rm{special GU closure}})\\
- + \Delta {G_{37^\circ penalty}}({\rm{oligo - C loops}})
+\Delta {G_{37^\circ loop} }(n > 3)  =  \Delta {G_{37^\circ } }_{initiation}{\rm{(n)} } + \Delta {G_{37^\circ } }({\rm{stack of the first mismatch} })\\
+ + \Delta {G_{37^\circ bonus} }({\rm{UU or GA first mismatch,but not AG} })\\
+ + \Delta {G_{37^\circ bonus} }({\rm{special GU closure} })\\
+ + \Delta {G_{37^\circ penalty} }({\rm{oligo - C loops} })
+\end{array}(4)
+$$
+其中n是环中核苷酸的数目。$\Delta {G_{37^\circ } }_{initiation}{\rm{(n)} }$ 的值在表6中给出。对于小于四个核苷酸的环，不包括第一次错配和自由能加成，这是因为假定这些环太受约束而无法在双链体末端进行相同的堆叠。
+
+三的环路稳定性的序列独立性支持了这一假设（Serra等，1997）。第一个不匹配的堆积被赋予与终端不匹配参数相同的自由能。**bonus** 适用于UU和GA(G在5'，A在3‘)首先不匹配的循环。G-U 闭环的 **bonus** 励仅适用于在5'侧上带有G且在碱基对中先于两个G残基的发夹。寡聚C环的罚分适用于所有未配对的核苷酸均为C的发夹环，并且有对于大于3的n是n的线性函数：
+$$
+\begin{array}{c}
+\Delta {G_{ { {37}^\circ }penalty} }({\rm{oligo - Cloops,n > 3} }) = An + B 
+ \end{array}
+$$
+对于三个C残基的环，$\Delta {G_{ { {37}^\circ }penalty} }$ 是 1.4Kal/mol,这些奖励项 **bonus** 和惩罚项 **penalties** 是根据热力学测量得出的(Giese et al., 1998; Serra et al., 1993, 1994, 1997; Groebe & Uhlenbeck, 1988).表6总结了发夹环稳定性近似中使用的序列相关项。为了计算公式4和表6中的多个项，发夹的初始自由能和所有稳定 **bonuses** 之和，$\Delta {G_{37^\circ {\rm{haipin} } } }$ 被定义为减去第一个失配的稳定性的 $ \Delta {G_{37^\circ {\rm{loop} } } } $ 考虑一个发夹序列, AGGA<u>AUAAUA</u>UCCU (环中的碱基对用下划线表示了) 在光学融合法下，他的稳定性为 -2.19kcal/mol。(Serra et al., 1993) 。$\Delta {G_{37^\circ {\rm{hairpin} } } }$ 由以下公式决定:
+$$
+\begin{array}{c}
+\Delta {G_{37^\circ {\rm{hairpin} } } } = \Delta {G_{37^\circ {\rm{stem - loop} } } } - \Delta {G_{37^\circ {\rm{stem} } } } - \Delta {G_{37^\circ {\rm{mismatch} } } }\\
+ =  - 2.19kcal/mol + 6.79kcal/mol + 0.8kcal/mol\\
+ = 5.4kcal/mol
 \end{array}
 $$
-其中n是环中核苷酸的数目。$\Delta {G_{37^\circ }}_{initiation}{\rm{(n)}}$ 的值在表6中给出。对于小于四个核苷酸的环，不包括第一次错配和自由能加成，这是因为假定这些环太受约束而无法在双链体末端进行相同的堆叠。
+其中，$\Delta {G_{37^\circ {\rm{stem} } } }$ 是由没有初始项的INN-HB参数(Xia et al., 1998)计算而来，$\Delta {G_{37^\circ {\rm{mismatch} } } }$  是终端不匹配的值(之前定义过)，表格7展示了通过光学熔解研究的茎环结构的完整数据库，以及对每个结构的$\Delta {G_{37^\circ {\rm{hairpin} } } } $ 的计算。
 
-三的环路稳定性的序列独立性支持了这一假设（Serra等，1997）。
+六个核苷酸的发夹环是研究最多的，用来确定UU和GA第一错配的$\Delta {G_{37^\circ bonus} }$ 。这是通过计算没有UU或GA第一错位或5'G-U3'闭合前有两个G残基的所有发夹的平均$\Delta {G_{37^\circ {\rm{hairpin} } } }$来实现的。一个序列GGUGUAAUGGCC也被排除在外，因为它比平均值稳定0.8 kcal / mol。该平均值用作六个发夹的$\Delta { {\rm{G} }_{37^\circ {\rm{initiation} } } }$起始值 ,因为对于loop来说$\Delta {G_{37^\circ {\rm{hairpin} } } }$ 和 $\Delta {G_{37^\circ {\rm{initiation} } } }$ 是相等的，没有**bonuses**。 然后计算具有UU和GA首次错配的发夹的 $\Delta {G_{37^\circ {\rm{hairpin} } } }$ 的平均值，，不同之处在于排除了序列GGUGUAAUAGCC，因为它比其他六个核苷酸发夹环的平均值稳定1 kcal / mol。  GA或UU不匹配。 两个$\Delta {G_{37^\circ {\rm{loop} } } } $ 值之间的差是GA和UU首次失配的$\Delta {G_{37^\circ {\rm{bonus} } } } $ 值:
+
+$$
+\begin{array}{c}
+\Delta {G_{37^\circ {\rm{bonus} } } }({\rm{UU or GA first mismatch} }) = \Delta { {\bar G}_{37^\circ {\rm{hairpin} } } }({\rm{hairpins of 6 nt with UU and GA first mismatch} })\\
+ - \Delta { {\bar G}_{37^\circ {\rm{hairpin} } } }({\rm{hairpins of 6 nt without UU and GA first mismatch and without GU closing pair closing pair preceded by two G residues} })\\
+ = 4.61{\rm{kcal/mol - 5} }{\rm{.40kcal/mol =  - 0} }{\rm{.8kcal/mol} }
+\end{array}
+$$
+$\Delta {G_{37^\circ {\rm{bonus} } } }$ 可以从误差传播的公式近似为：
+
+
+$$
+\sigma ({G_{37^\circ {\rm{bonus} } } }) = \sqrt {\begin{array}{*{20}{c} }
+{ {\sigma ^2}(\Delta {G_{37^\circ {\rm{hairpin} } } }{\rm{hairpins with UU and GA mismatch} }) + }\\
+{ {\sigma ^2}(\Delta {G_{37^\circ {\rm{hairpin} } } }{\rm{hairpins without UU and GA mismatch} })}
+\end{array} }  = 0.22{\rm{kcal/mol} } -(8)
+$$
+
+
+其中 $\sigma$ 是指示数据的标准差。
+
+对于大小不为六的环，将为每个研究的序列计算$ {G_{37^\circ {\rm{initiation} } } } $ ，不包括前面带有两个G残基的5'G-U3'闭合发夹和oligo-C发夹。对于大小不为六的环，将为每个研究的序列计算G，不包括前面带有两个G残基的5'G-U3'闭合发夹和oligo-C发夹。 对于具有UU或GA第一个错配的序列，从${\Delta {G_{37^\circ {\rm{hairpin} } } }   }$减去${G_{37^\circ {\rm{bonus} } } }$，以确定$\Delta {G_{37^\circ } }_{initiation} $。 用于预测能量的$\Delta {G_{37^\circ } }_{initiation} $是该长度的发夹的所有$\Delta {G_{37^\circ } }_{initiation} $的平均值。 表6包含了长度为3至9个核苷酸的发夹的$\Delta {G_{37^\circ } }_{initiation} $以及平均值的标准偏差。 根据Jacobson＆Stockmayer（1950）的处理，对于大于9个核苷酸的发夹，G 37的初始化近似为：
+
+
+$$
+\Delta {G_{ { {37}^\circ } } }_{initiation}(n > 9) = \Delta {G_{ { {37}^\circ } } }_{initiation}(9) + 1.75RT\ln (n/9)
+$$
+
+
+其中 $n$ 是未匹配的碱基的数量，R是平均值，5‘G-U3'闭合发夹比相同长度的其他发夹更稳定${\rm{ - 2} }{\rm{.2(} } \pm {\rm{0} }{\rm{.53)} }$ ,在二级结构预测期间，为这些发夹分配了-2.2kcal / mol的 **bonus** 。Oligo-C发夹环比其他相同长度的发夹环不稳定（Groebe＆Uhlenbeck，1988）。 对于所研究的四个oligo-C环，降低的稳定性随未配对核苷酸的数量而增加。具有三个以上未配对核苷酸的寡聚C环的自由能罚分符合方程式5，其中n是核苷酸数，A和B通过线性回归确定为${\rm{0} }{\rm{.30(} } \pm {\rm{0} }{\rm{.052)} } $kcal / mol和${\rm{1} }{\rm{.6(} } \pm {\rm{0} }{\rm{.34)} }$kcal / mol。为此的确定系数${R^2}$为0.95。 对于具有三个C残基的发夹，基于一项测量，惩罚为1.4 kcal / mol。 折叠算法在结构预测过程中将这些惩罚应用于oligo-C循环。 
 
 ------
 
@@ -286,25 +370,25 @@ $$
 
 | 近邻                                                         | $\Delta G_{37}^\circ (kcal/mol)$ | 误差 | $\Delta H^\circ (kcal/mol)$ | 误差 | $\Delta S^\circ {(eu)^c}$ | $Erro{r^c}$ |
 | ------------------------------------------------------------ | -------------------------------- | ---- | --------------------------- | ---- | ------------------------- | ----------- |
-| $ \begin{array}{*{20}{c}}{5'AG3'}\\{3'UU5'}\end{array} $     | -0.55                            | 0.32 | -3.21                       | 2.76 | -8.6                      | 8.45        |
-| $\begin{array}{*{20}{c}}{5'AU3'}\\{3'UG5'}\end{array}$       | -1.36                            | 0.24 | -8.81                       | 2.10 | -24.0                     | 6.44        |
-| $\begin{array}{*{20}{c}}{5'CG3'}\\{3'GU5'}\end{array}$       | -1.41                            | 0.24 | -5.61                       | 2.13 | -13.5                     | 6.53        |
-| $\begin{array}{*{20}{c}}{5'CU3'}\\{3'GG5'}\end{array}$       | -2.11                            | 0.25 | -12.11                      | 2.22 | -32.2                     | 6.81        |
-| $\begin{array}{*{20}{c}}{5'GG3'}\\{3'CU5'}\end{array}$       | -1.53                            | 0.27 | -8.33                       | 2.33 | -21.9                     | 7.14        |
-| $\begin{array}{*{20}{c}}{5'GU3'}\\{3'CG5'}\end{array}$       | -2.51                            | 0.25 | -12.59                      | 2.18 | -32.5                     | 6.67        |
-| $\begin{array}{*{20}{c}}{5'GA3'}\\{3'UU5'}\end{array}$       | -1.27                            | 0.28 | -12.83                      | 2.44 | -37.3                     | 7.47        |
-| $\begin{array}{*{20}{c}}{5'GG3'}\\{3'UU5'}\end{array}$       | $ + 0.47{( - 0.5)^b}$            | 0.96 | -13.47                      | 8.37 | -44.9                     | 25.65       |
-| $\begin{array}{*{20}{c}}{5'GU3'}\\{3'UG5'}\end{array}{\rm{a}}$ | +1.29                            | 0.56 | -14.59                      | 4.92 | -51.2                     | 15.08       |
-| $\begin{array}{*{20}{c}}{5'GGUC3'}\\{3'CUGG5'}\end{array}{\rm{a}}$ | -4.12                            | 0.54 | -30.80                      | 8.87 | -86.0                     | 23.70       |
-| $\begin{array}{*{20}{c}}{5'UG3'}\\{3'AU5'}\end{array}$       | -1.00                            | 0.30 | -6.99                       | 2.64 | -19.3                     | 8.09        |
-| $\begin{array}{*{20}{c}}{5'UG3'}\\{3'GU5'}\end{array}$       | +0.30                            | 0.48 | -9.26                       | 4.19 | -30.8                     | 12.86       |
+| $ \begin{array}{*{20}{c} }{5'AG3'}\\{3'UU5'}\end{array} $    | -0.55                            | 0.32 | -3.21                       | 2.76 | -8.6                      | 8.45        |
+| $\begin{array}{*{20}{c} }{5'AU3'}\\{3'UG5'}\end{array}$      | -1.36                            | 0.24 | -8.81                       | 2.10 | -24.0                     | 6.44        |
+| $\begin{array}{*{20}{c} }{5'CG3'}\\{3'GU5'}\end{array}$      | -1.41                            | 0.24 | -5.61                       | 2.13 | -13.5                     | 6.53        |
+| $\begin{array}{*{20}{c} }{5'CU3'}\\{3'GG5'}\end{array}$      | -2.11                            | 0.25 | -12.11                      | 2.22 | -32.2                     | 6.81        |
+| $\begin{array}{*{20}{c} }{5'GG3'}\\{3'CU5'}\end{array}$      | -1.53                            | 0.27 | -8.33                       | 2.33 | -21.9                     | 7.14        |
+| $\begin{array}{*{20}{c} }{5'GU3'}\\{3'CG5'}\end{array}$      | -2.51                            | 0.25 | -12.59                      | 2.18 | -32.5                     | 6.67        |
+| $\begin{array}{*{20}{c} }{5'GA3'}\\{3'UU5'}\end{array}$      | -1.27                            | 0.28 | -12.83                      | 2.44 | -37.3                     | 7.47        |
+| $\begin{array}{*{20}{c} }{5'GG3'}\\{3'UU5'}\end{array}$      | $ + 0.47{( - 0.5)^b}$            | 0.96 | -13.47                      | 8.37 | -44.9                     | 25.65       |
+| $\begin{array}{*{20}{c} }{5'GU3'}\\{3'UG5'}\end{array}{\rm{a} }$ | +1.29                            | 0.56 | -14.59                      | 4.92 | -51.2                     | 15.08       |
+| $\begin{array}{*{20}{c} }{5'GGUC3'}\\{3'CUGG5'}\end{array}{\rm{a} }$ | -4.12                            | 0.54 | -30.80                      | 8.87 | -86.0                     | 23.70       |
+| $\begin{array}{*{20}{c} }{5'UG3'}\\{3'AU5'}\end{array}$      | -1.00                            | 0.30 | -6.99                       | 2.64 | -19.3                     | 8.09        |
+| $\begin{array}{*{20}{c} }{5'UG3'}\\{3'GU5'}\end{array}$      | +0.30                            | 0.48 | -9.26                       | 4.19 | -30.8                     | 12.86       |
 | Each Termial $G - {U^d}$                                     | +0.45                            | -    | +3.72                       | -    | +10.5                     | -           |
 
-a:最近的邻居 $\begin{array}{*{20}{c}}{5'GU3'}\\{3'UG5'}\end{array}$ 分为两个环境：第一个是整个片段的最近邻 $\begin{array}{*{20}{c}}{5'GGUC3'}\\{3'CUGG5'}\end{array}$  第二个部分是$\begin{array}{*{20}{c}}{5'GU3'}\\{3'UG5'}\end{array}$ 和所有其他的对。
+a:最近的邻居 $\begin{array}{*{20}{c} }{5'GU3'}\\{3'UG5'}\end{array}$ 分为两个环境：第一个是整个片段的最近邻 $\begin{array}{*{20}{c} }{5'GGUC3'}\\{3'CUGG5'}\end{array}$  第二个部分是$\begin{array}{*{20}{c} }{5'GU3'}\\{3'UG5'}\end{array}$ 和所有其他的对。
 
-b: 对于二级结构预测而言， $\begin{array}{*{20}{c}}{5'GG3'}\\{3'UU5'}\end{array}$ 被设定为 - 0.5 kal/mol
+b: 对于二级结构预测而言， $\begin{array}{*{20}{c} }{5'GG3'}\\{3'UU5'}\end{array}$ 被设定为 - 0.5 kal/mol
 
-c: $\Delta S^\circ $ 的计算公式是 $\Delta S^\circ  = (\Delta H^\circ  - \Delta G{^\circ _{37}})/(310.15K)$.$\Delta S^\circ $ 中的误差来自线性回顾
+c: $\Delta S^\circ $ 的计算公式是 $\Delta S^\circ  = (\Delta H^\circ  - \Delta G{^\circ _{37} })/(310.15K)$.$\Delta S^\circ $ 中的误差来自线性回顾
 
 d: 末端G-U对是螺旋末端的G-U，包括发夹、内部环、连接和带有一个以上核苷酸的凸起处的G-U对。假设终端G-U参数与终端A-U参数相同由Xia等(1998)推导。
 
@@ -328,7 +412,7 @@ $$
 $$
 \begin{array}{c}
 \Delta {G_{37^\circ } }(n > 3) = \Delta {G_{37^\circ initiation} }(n) + \Delta {G_{37^\circ } }({\rm{stacking of the first mismatch} }) + \Delta {G_{37^\circ bonus} }({\rm{UU or GA first mismatch} })\\
- + \Delta {G_{37^\circ bonus}}({\rm{special GU closure} }) + \Delta {G_{37^\circ penalty} }({\rm{poly - C loops} })
+ + \Delta {G_{37^\circ bonus} }({\rm{special GU closure} }) + \Delta {G_{37^\circ penalty} }({\rm{poly - C loops} })
 \end{array}
 $$
 $\Delta {G_{37^\circ penalty} }({\rm{poly - C loops} })$ 在环只有3个情况下是1.4kcal/mol,或者其他情况下由以下公式决定:
@@ -341,3 +425,298 @@ a $\Delta {G_{37^\circ bonus} }$ 该项不适用于AG首次不匹配的发夹。
 
 ------
 
+表格7 省略
+
+------
+
+### Tetraloop bonuses
+
+特定的四环，即具有四个核苷酸的发夹环，具有增强的稳定性。 已知有些模型比上述模型预测的要稳定（Tuerk等人，1988； Antao＆Tinoco，1992； Antao等人，1991； Varani等人，1991），而另一些已知对稳定模型很重要。 三级结构（Costa＆Michel，1995; Butcher等，1997; Lehnert等，1996; Cate等，1996; Jucker＆Pardi，1995; Michel＆Westhof，1990）。 因此，程序会参考特殊的四环序列表和相应的稳定性bonuses（表8），以分配具有四个核苷酸的发夹环的稳定性。
+
+特殊四环序列表包括闭合碱基对。 当不考虑关闭碱基对时，这比以前应用的四环奖金更具区分性（Walter等，1994a； Jaeger等，1989）。 四环序列的丰度取决于闭合碱基对（Woese等，1990）。 例如，在为该研究而组装的数据库中，存在914个四环，其中最常见的是G<u>GGGA</u>C，发生了87次。  A<u>GGGA</u>U和C<u>GGGA</u>G分别发生四次和八次，而U<u>GGGA</u>A根本不发生。每个循环的 **bonus** 幅度（表8）基于其在为测试算法而组装的结构数据库中的丰度。 对于该数据库，从系统发育的所有可用分支中选择每种RNA类型的结构。 在结构数据库中发生超过22次的循环可获得-3.0kcal / mol的 **bonus** 。 发生16到18次的循环可获得-2.5kcal / mol的 **bonus** ，将11到14次之间的循环赋予-2.0kcal / mol的 **bonus** ，将获得-1.5kcal / mol的 **bonus** 分配给 包含六到九次（包含在内）。
+
+对于短的RNA链，三次相互作用并不重要，可以使用基于热力学测量的第二个四环稳定性表（Antao＆Tinoco，1992）。 已知文献中有三个四环序列具有超过上述模型预测的热力学稳定性。 这些序列分别是C<u>UUCG</u>G，C<u>UACG</u>G和C<u>GCUU</u>G，奖金分别为-2.1，-1.5和-0.9kcal / mol（Antao＆Tinoco，1992）。
+
+### Bulge loops
+
+隆起环仅在一条链中中断螺旋结构，使RNA结构不稳定（Longfellow等，1990； Groebe＆Uhlenbeck，1989； Fink＆Crothers，1972）。  凸起环的自由能增量取决于用于螺旋的最近邻模型。 用Xia等人的INN-HB模型计算稳定性。  （1998）使用以下公式： 
+$$
+\Delta {G_{37^\circ {\rm{bulge} } } } = \Delta {G_{37^\circ {\rm{initiation} } } }(n) + \Delta {G_{37^\circ {\rm{bp stack} } } }({\rm{bulges\_of\_one\_nucleotide\_only} })
+$$
+假设相邻螺旋之间的螺旋堆积是连续的，而单个凸起则被 $n \ge 2$ 的凸起中断（Jaeger等，1989； Weeks＆Crothers，1993）。 因此，末端A-U罚分适用于仅比一个核苷酸长的凸起环。 表9列出了1到6个核苷酸的凸起环的 $\Delta {G_{37^\circ {\rm{initiation} } } }(n)$ 对于超过6个核苷酸的凸起，使用以下近似值（Jacobson＆Stockmayer，1950; Jaeger等，  1989）：
+$$
+\Delta {G_{37^\circ {\rm{initiation} } } }(n > 6) = \Delta {G_{37^\circ {\rm{initiation} } } }(n) + 1.75RT\ln (n/6)
+$$
+$\Delta {G_{37^\circ {\rm{bulge} } } }$ 根据实验数据计算出一到三个未配对的核苷酸为：
+$$
+\begin{array}{l}
+\Delta {G_{37^\circ {\rm{bulge} } } } = \Delta {G_{37^\circ } }({\rm{entire\_sequence\_with\_bulge} })\\
+ - \Delta {G_{37^\circ } }({\rm{reference\_sequence} })\\
+ + \Delta {G_{37^\circ {\rm{bp\_stack} } } }({\rm{interrupted\_nearest\_neighbor\_for\_base\_stacking for\_bulges > 1\_nucleotide} })
+\end{array}(12)
+$$
+其中参考序列是去除了凸起的序列。 这些自由能在表10中列出。对相同数目的核苷酸的值取平均值。 对于长度为4、5和6的环，自由能增量比下一个较小的凸起的增量高0.4 kcal / mol。 选择这种增加与两个和三个核苷酸的凸出之间的自由能增加相同，因为等式（11）的对数增加仅预期用于更长的环（Jacobson＆Stockmayer，1950）。
+
+### The $2 \times 2$ internal loops (tandem mismatches)
+
+$2 \times 2$ 内部环的稳定性（每条链中两个相对的未配对核苷酸使螺旋RNA中断）的稳定性，也称为串联错配，已成为先前研究的主题（Xia等，1997； Wu等，  1995； Walter等，1994c，SantaLucia等，1991a，b）Xia等。  （1997）开发了一种基于已知的$2 \times 2$回路稳定性外推所有$2 \times 2$内部回路稳定性的方法。现在已经使用INN-HB最近邻参数计算了这些自由能参数。 这是必要的，因为根据以下条件，环的稳定性$\Delta {G_{37^\circ {\rm{loop} } } }$取决于螺旋RNA的最近邻模型： 
+$$
+\begin{array}{l}
+\Delta {G_{37^\circ {\rm{loop} } } } = \Delta {G_{37^\circ } }({\rm{entire\_sequence\_with\_loop} })\\
+ - \Delta {G_{37^\circ } }({\rm{reference\_sequence} })\\
+ + \Delta {G_{37^\circ } }({\rm{interruped\_nearest\_neighbor\_for\_base\_stacking} })
+\end{array} (13)
+$$
+其中参考序列与整个序列相同，只是不存在串联错配。
+
+表11总结了对称的$2 \times 2$内部环的稳定性（Xia等，1997； Wu等，1995； Walter等，1994c，SantaLucia等，1991a，b）。 序列被列为稳定性的周期表，水平轴上具有串联不匹配序列，而垂直轴上具有相邻碱基对（Wu等，1995）。 对于未经测量的序列，将稳定性预测为左右两个最相邻已知稳定性的平均值，除了
+$$
+\begin{array}{*{20}{c} }
+{5'GGGC3'}\\
+{3'CGGG5'}
+\end{array}
+$$
+设置为等于
+$$
+\begin{array}{*{20}{c} }{5'CGGG3'}\\{3'GGGC5'}\end{array}
+$$
+
+由Watson-Crick对关闭的所有可能的不对称串联错配的自由能均根据对称方程从对称环稳定性中近似得出（Xia等，1997）：
+$$
+\Delta {G_{ { {37}^\circ }{\rm{predict} } } }(\begin{array}{*{20}{c} }
+{5'{\kern 1pt} IXYK3'}\\
+{3'JWZL5'}
+\end{array}) = [\Delta {G_{ { {37}^\circ }{\rm{loop} } } }(\begin{array}{*{20}{c} }
+{5'{\kern 1pt} IXYK3'}\\
+{3'JWZL5'}
+\end{array}) + \Delta {G_{ { {37}^\circ }{\rm{loop} } } }(\begin{array}{*{20}{c} }
+{5'{\kern 1pt} LZYK3'}\\
+{3'KYZL5'}
+\end{array})]/2 + \Delta 
+$$
+其中I-J和K-L是Watson-Crick对。$\Delta $与失配的大小和稳定性有关，如表12所示。
+
+其中I-J和K-L是Watson-Crick对。  $\Delta $与失配的大小和稳定性有关，如表12所示。在以前的研究中（Xia等，1997； Mathews等，1998），AU封闭的$\Delta $值估计小于$\Delta $的$\Delta $值。  G-C关闭。 但是，对于表1的数据库，当消除$\Delta $的差异时，结构预测会更加准确。
+   为了预测由G-U对闭合的$2 \times 2$回路的自由能，将每个G-U对视为A-U对。 二次结构预测算法参考了所有可能的串联错配的自由能表。
+
+Xia等人(1997)测量了不对称串联错配的稳定性，它被用来确定$\Delta $(式(14))。表13给出了2*2内环的稳定性，以XW和YZ为失配序列为
+$$
+\begin{array}{*{20}{c} }
+{5'GXYG3'}\\
+{3'CWZC5'}
+\end{array}
+$$
+表13所示的每个实验测量的不对称2*2内环计算出的$\Delta $值，根据稳定性和失配大小，适合于类似大小的类别。
+
+稳定的不匹配定义为GU，GA和UU； 所有其他失配都会破坏稳定。 下一个标准，错配大小是嘌呤-嘌呤，嘌呤-嘧啶或嘧啶-嘧啶。 第一类是大小相等的所有不匹配的组合，例如
+$$
+\begin{array}{*{20}{c} }
+{5'GAAG3'}\\
+{3'CAGC5'}
+\end{array}
+$$
+或两个不稳定不匹配的任意组合（不包括AC不匹配）。这些串联错配的平均$\Delta $为0.0（$\pm $0.4）千卡/摩尔。下一类是由两个不同大小的稳定错配组合而成，平均D为1.8（$\pm $0.4）千卡/摩尔。另一类是由一个稳定错配和一个不稳定错配（不包括AC）不同大小的串联错配组成，平均D为1.0（$\pm $0.4）kcal/mol.最后一类是至少有一个AC错配的串联错配。这些是最不确定的，平均D为0.0（$\pm $0.7）千卡/摩尔.表12总结了这些类别、$\Delta $值和标准偏差。
+
+$\Delta $值是与两个对称串联错配的简单平均值的偏差，该两个对称串联错配包含错配和不对称错配中的相邻碱基对。 当不同大小的不匹配在循环中相邻时，这是要付出的稳定性代价。 显然，当螺旋骨架适应不同大小的错配时，螺旋结构就不稳定了。 稳定失配的结合更显着这种效果（Xia等，1997）。
+
+### The 2$\times$1 internal loops
+
+形式的内部循环的稳定性来自
+$$
+\begin{array}{*{20}{c} }
+{5'{\kern 1pt} {\rm{GXG} }3'}\\
+{3'{\rm{CZYC} }5'}
+\end{array}
+$$
+和
+$$
+\begin{array}{*{20}{c} }
+{5'{\kern 1pt} {\rm{CXC} }3'}\\
+{3'{\rm{GZYG} }5'}
+\end{array}
+$$
+由Schroeder等人研究。  （1996）。 表14总结了G-C封闭的2$\times$1 内部环路的稳定性。 基于实验的值来自Schroeder等人的测量。  （1996年）和Xia等人的INN-HB参数。  （1998）使用：
+$$
+\begin{array}{l}\Delta {G_{37^\circ {\rm{loop} } } } = \Delta {G_{37^\circ } }({\rm{entire\_sequence\_with\_2\times1\_loop} })\\ - \Delta {G_{37^\circ } }({\rm{reference\_sequence} })\\ + \Delta {G_{37^\circ } }({\rm{interruped\_nearest\_neighbor\_for\_base\_stacking} })\end{array} (13)
+$$
+G-C封闭的2 $\times$ 1回路的稳定性用于通过以下方式预测未测量的2 $\times$ 1回路的稳定性：
+$$
+\begin{array}{c}
+\Delta {G_{ { {37}^\circ }{\rm{loop} } } }{\rm{ = } }\Delta {G_{ { {37}^\circ }{\rm{loop} } } }({\rm{GC\_closing\_pairs} })\\
+{\rm{ + } }\Delta {G_{ { {37}^\circ }{\rm{penalty} } } }({\rm{for\_each\_AU\_closing\_pairs} })
+\end{array}
+$$
+如果
+$$
+\begin{array}{*{20}{c} }
+{5'{\rm{GXG} }3'}\\
+{3'{\rm{CZYC} }5'}
+\end{array}
+$$
+和
+$$
+\begin{array}{*{20}{c} }
+{5'{\rm{CXC} }3'}\\
+{3'{\rm{GZYG} }5'}
+\end{array}
+$$
+被测量过了，那么 $\Delta {G_{ { {37}^\circ }{\rm{loop} } } }({\rm{GC\_closing\_pairs} })$ 就是其平均值。为了完成G-C闭环表，使用了三个近似值（Schroeder等，1996）。 前两个近似是：
+$$
+\begin{array}{*{20}{c} }
+A\\
+{3'CG5'}
+\end{array}
+$$
+是
+$$
+\begin{array}{*{20}{c} }
+{5'{\rm{GAG} }3'}\\
+{3'{\rm{CAGC} }5'}
+\end{array}
+$$
+和
+$$
+\begin{array}{*{20}{c} }
+{5'{\rm{CAC} }3'}\\
+{3'{\rm{GAGG} }5'}
+\end{array}
+$$
+的近似值。
+$$
+\begin{array}{*{20}{c} }
+A\\
+{3'GC5'}
+\end{array}
+$$
+是
+$$
+\begin{array}{*{20}{c} }
+{5'{\rm{GAG} }3'}\\
+{3'{\rm{CGAC} }5'}
+\end{array}
+$$
+和
+$$
+\begin{array}{*{20}{c} }
+{5'{\rm{CAC} }3'}\\
+{3'{\rm{GGAG} }5'}
+\end{array}
+$$
+平均值的近似。
+
+这些近似是因为未测量和测量序列之间的AG失配的位置相似。最后一个近似值是，没有稳定错配的所有环路（GA或UU）的平均值用于预测没有稳定错配的未测量环路的稳定性。这个平均值是2.2（$ \pm $0.3）千卡/摩尔。A-U闭合的惩罚是从不包括G-U失配的对称2$ \times $2内环的数据中推算出来的。平均而言，A-U闭合的对称2$ \times $2环比同序列的G-C闭合环的稳定性低1.3（$ \pm $0.4）千卡/摩尔（Wu等人，1995）。因此，在2$ \times $1内环中，每个闭合的A-U被施加0.65千卡/摩尔的惩罚。这个惩罚比单纯的末端A-U碱基对的预期大0.2千卡/摩尔。所有2$ \times $1环路的估计稳定性都包含在一个表格中，该表格在二级结构预测时被算法所参考。
+
+### Single mismatches (1$\times$1 internal loops)
+
+最近的研究表明，单一错配的稳定性比以前认识到的更依赖于序列(Morse & Draper, 1995; Zhu & Wartell, 1997; Bevilacqua & Bevilacqua, 1998; Meroueh & Chow, 1999; R. Kierzek, M. E. Burkard & D.H.T., 未发表的结果)。为了考虑到这种序列依赖性，新版本的算法参考了所有可能的1 $ \times $ 1循环和闭合基线对组合的表格，以获得单次失配的自由能。
+
+1X1环路的表格包含了我们实验室的实验确定的值(R.K.等人，未发表的结果；Peritz等人，1991)。对于除GG以外的所有其它错配，使用所有实验确定的具有两个相邻GC对的单错配的稳定性的平均值0.4千卡/摩尔，不包括GG错配。
+$$
+\begin{array}{*{20}{c} }
+{5'{\rm{GUC} }3'}\\
+{3'{\rm{CUG} }5'}
+\end{array}
+$$
+该序列也被排除在平均值之外，因为它比其他非GG单错配更稳定近1 kcal / mol。 对于GG错配，使用-1.7 kcal / mol的平均稳定性。 对于每个A-U或G-U封闭，将应用0.65 kcal / mol的损失（由2 $ \times $ 2个内部回路确定）。 此**penalty**与实验结果一致（R.K ..，M.E.B。和D.H.T.，未公开的结果）。
+
+### Other internal loops
+
+一个简单的近似值被用来模拟其他内部回路的自由能（Serra＆Turner，1995）:
+$$
+\begin{array}{c}
+\Delta {G_{ { {37}^\circ }{\rm{loop} } } }{\rm{ = } }\Delta {G_{ { {37}^\circ }{\rm{initiation} } } }({\rm{n1 + n2} }) + \Delta {G_{ { {37}^\circ }{\rm{asymm} } } }|n1 - n2|\\
+ + \Delta G{^\circ _{ {\rm{AU/GU\_closure\_penalty} } } } + \Delta G{^\circ _{ {\rm{UU/GA/AG\_bonus} } } }
+\end{array}
+$$
+其中n1为环路一侧的核苷酸数目，n2为环路另一侧的核苷酸数目。$\Delta {G_{ { {37}^\circ }{\rm{initiation} } } }({\rm{n1 + n2} }) $是闭合环的惩罚项(见表17),$\Delta {G_{ { {37}^\circ }{\rm{asymm} } } }|n1 - n2|$惩罚环中不对称性的项$\Delta G{^\circ _{ {\rm{AU/GU\_closure\_penalty} } } }$ 是对A-U或G-U碱基对闭合的环的惩罚,$\Delta G{^\circ _{ {\rm{UU/GA/AG\_bonus} } } }$ 是对任何一个方向的UU或GA先错配的环的有利奖励.表15总结了这些序列依赖的自由能项。内部环路是1$\times$n不给一个G（S.Schroeder＆D.H.T.，未发表的结果）。个内部环路稳定性的模型忽略了环路中除了末端错位以外的序列。
+
+为了确定$\Delta G{^\circ _{ {\rm{initiation} } } }$，根据公式(13)，利用Xia等人(1998)的最近邻Watson-Crick参数对Peritz等人(1991)研究的序列重新计算$\Delta {G_{ { {37}^\circ }{\rm{loop} } } }$值.表16显示了计算出的环路自由能。对于$({\rm{n1 + n2} })$的偶数值，$\Delta G{^\circ _{ {\rm{initiation} } } }({\rm{n1 + n2} })$是n1等于n2的环路的$\Delta {G_{ { {37}^\circ }{\rm{loop} } } }$的平均值。对于(n1+n2)的奇数值，$\Delta G{^\circ _{ {\rm{initiation} } } }({\rm{n1 + n2} })$为$\Delta G{^\circ _{ {\rm{initiation} } } }({\rm{n1 + n2+1} })$和$\Delta G{^\circ _{ {\rm{initiation} } } }({\rm{n1 + n2-1} })$的平均值进行插值。表17给出了平均值及其误差。对于偶数$({\rm{n1 + n2} })$，这个报告的误差是标准差，对于奇数$({\rm{n1 + n2} })$，由误差传播估计的误差为：
+$$
+\sigma ({\rm{n1 + n2} }){\rm{ = } }\sqrt { {\sigma ^2}({\rm{n1 + n2 + 1} }){\rm{ + } }{\sigma ^2}({\rm{n1 + n2 - 1} })}
+$$
+两股核苷酸数目相等的内部环比每股核苷酸数目不对称的环更有利.为了模拟这种效应，术语$\Delta {G_{ { {37}^\circ }{\rm{asymm} } } }|n1 - n2|$出现在内部环自由能的近似中。为了确定$\Delta G{^\circ _{ {\rm{asymm} } } }$，对每个不对称环计算出一个不对称性的$\Delta \Delta {\rm{G} }^\circ $，根据 
+$$
+\Delta \Delta { {\rm{G} }_{37^\circ {\rm{loop} } } }{\rm{ - } }\Delta { {\rm{G} }_{37^\circ {\rm{initiation} } } }({\rm{n1 + n2} })
+$$
+表16给出了每个非对称环的$\Delta \Delta {\rm{G} }^\circ $，图3给出了$\Delta \Delta {\rm{G} }^\circ $作为$|{\rm{n1 - n2} }|$的函数的曲线图。该效应与序列有关，但随着$|{\rm{n1 - n2} }|$的增大而线性增加。 数据（不包括2 $\times$ 1内部循环）适合于一条在原点处具有截距的线，如图3所示。线的斜率0.48（$\pm$0.04）kcal / mol用作$\Delta {G_{ {\rm{asymm} } } }$。2 $\times$ 1 循环罚分大于3 $\times$ 2循环罚分，并从$\Delta \Delta {\rm{G} }^\circ $的线性拟合中排除。2 $\times$ 1循环通过使用上述单独模型的二级结构预测算法正确处理。
+
+由A-U基对闭合的2$\times$2内环比由G-C基对闭合的环要差0.65千卡/摩尔，每一个A-U闭合。这比单独的终端A-U基对的0.45千卡/摩尔项稳定性差0.2千卡/摩尔(Xia等，1998)。这0.2千卡/摩尔，称为$\Delta G{^\circ _{ {\rm{AU/GU\_closure\_penalty} } } }$，加在大内环的每个A-U或G-U闭合的0.45千卡/摩尔的末端A-U罚项上。
+
+平均而言，在对称的2 $\times$2内部回路中，GA和UU失配比CA失配更稳定，每个失配分别为-1.1和-0.7 kcal / mol。 对于大型内部环路，如果环路中的第一个不匹配是UU，GA或AG，则与闭合碱基对无关，都会施加这些自由能$\Delta G{^\circ _{ {\rm{UU/GA\_bonus} } } }$。 对1 $\times$ n个内部回路的热力学研究表明，GA和UU错配不会赋予额外的稳定性（S.S.和D.H.T.，未发表的结果）。 因此，没有将GA或UU奖金应用于1 $\times$ n个内部循环。
+
+### Multibranch loops
+
+多分支环（结）的自由能由引发的不利条件和堆积的有利条件组成。 动态编程算法和efn2之间的多分支循环稳定性规则有所不同。
+
+在动态规划算法中，多分支循环的稳定性由以下公式估算：
+$$
+\Delta G{^\circ _{ {\rm{loop} } } } = {a_1} + {b_1}n + {c_1}h + \Delta G{^\circ _{ {\rm{dangle} } } }
+$$
+其中，n是未配对核苷酸的数目，h是分支螺旋的数目。 邻近螺旋的每个未配对的核苷酸贡献了悬空末端的有利自由能。 表18给出了参数a1，b1和c1的值。 注意，在动态编程算法中将b1设置为零。
+
+在efn2中，用于近似多分支环起始项的方程式取决于未配对核苷酸的数量。 对于少于七个未配对的核苷酸，形式为：
+$$
+\Delta G{^\circ _{ {\rm{loop} } } } = {a_2} + {b_2}n + {c_2}h + \Delta G{^\circ _{ {\rm{stacking} } } }
+$$
+其中$\Delta G{^\circ _{ {\rm{stacking} } } }$是同轴堆叠和端子失配或悬空端部堆叠的有利自由能，如下所述。 具有七个或更多核苷酸的等式形式为：
+$$
+\Delta G{^\circ _{ {\rm{loop} } } } = {a_2} + 6n + (1.1{\rm{kcal/mol} }(\ln ({\rm{n} }/6))) + {c_2}h + \Delta G{^\circ _{ {\rm{stacking} } } }
+$$
+表18中给出了参数a2，b2和c2。
+
+多分支环是同轴堆叠的潜在位置，两个螺旋的首尾相连是有利的相互作用。 在一个由短的低聚物结合到茎-环结构的单链末端组成的模型系统中，已经测量了同轴堆叠的稳定性增量（Walter等，1994a，b； Kim等，1996）。  ）。 观察到同轴堆叠是由短螺旋形成的双链体的稳定性增强，高于其没有界面的稳定性。 量化为：
+$$
+\begin{array}{c}
+\Delta G{^\circ _{ {\rm{coaxial} } } } = \Delta G^\circ ({\rm{helix\_in\_context\_of\_stem\_loop\_structure} })\\
+ - \Delta G^\circ ({\rm{helix\_without\_stem\_loop\_structure} })\\
+ + \Delta G{^\circ _{ {\rm{correction} } } }
+\end{array}
+$$
+其中$\Delta G{^\circ _{ {\rm{correction} } } }$校正是用于移动茎环结构上悬空的3'个末端的自由能（如果存在）。 表19给出了使用INN-HB螺旋最近邻模型计算时，接口间同轴堆叠的自由能增量，且没有中间失配（Xia等，1998）。 表20给出了中间不匹配情况下同轴堆叠的自由能增量。
+
+Efn2给出了相邻螺旋的同轴堆叠的稳定性增强，最多只有一个介入错配.当螺旋没有介入错配时，稳定性奖金是螺旋中基线对堆叠的自由能参数。这个数字是通过计算Xia等人(1998)的螺旋堆叠最近邻之上的过剩稳定性来确定的，$\Delta G{^\circ _{ {\rm{coaxial} } } } - \Delta G{^\circ _{ {\rm{NN} } } }$，对于每个测量的界面。在接口齐平的情况下，即没有中间错位，也没有超出接口的链延伸，平均过剩稳定性为-1.0(0.27)千卡/摩尔。每个接口序列的过剩稳定性大致相同，说明序列依赖性与最近邻参数相似。对于界面后的链延伸，过剩稳定性为0.0（0.54）千卡/摩尔。假设较大结构内的环境将与具有链延伸的模型相似，因此，对于螺旋内的那些序列，没有中间核苷酸的螺旋的同轴堆积被设置为最近邻参数。
+
+对于一个插入的核苷酸，当存在另一个可能引起插入不匹配的核苷酸（5'到5'螺旋或3'到3'螺旋）时，允许同轴堆叠。 有两个不同的堆栈（图4）。 第一个堆栈位于连续主干的侧面，在图4中，该主干是U-A上的5' A-G 3'。 该堆栈的参数是端子不匹配的自由能。 第二个堆栈位于主干打开以进入和退出链的一侧。 在图4中，这是C-G上的A-G。 使其独立于序列，其值为-2.1 kcal / mol，是表20中包含的中间错配的稳定性增量的平均值。
+
+多分支环中与螺旋相邻的未配对核苷酸可以堆积到螺旋末端。 当一个核苷酸可以堆积在螺旋末端（3'或5'末端）上时，efn2给出的自由能就是悬空的末端自由能（上方）。 当5'和3'未配对的核苷酸可以堆叠在同一螺旋上时，悬空的30个末端或末端错配的自由能会给出更有利的自由能（上图）。
+
+为了找到多分支循环可能的最低自由能，efn2使用递归算法来搜索相互作用的最有利组合。 这是必需的，因为参与同轴堆叠的螺旋不能具有堆叠的悬空端，也不能同轴堆叠在一个以上的螺旋上。
+
+例如，考虑图5所示的酵母苯丙氨酸tRNA结构的多分支环（Sprinzl等，1998）。 在这种结构中，两个同轴堆叠是可能的。 螺旋I和IV可以堆叠而无需插入核苷酸，而螺旋II和III可以堆叠而插入不匹配。 该错配在核苷酸G26与A9或A44之间。 为了确定哪个堆叠是最佳的，计算每个替代方案的自由能。 螺旋I和IV的同轴堆叠贡献-2.4kcal / mol，或者核苷酸U8和C48在螺旋I和IV上的悬空分别贡献了-0.4kcal / mol。 因此，efn2预测螺旋线I和IV以-2.4 kcal / mol的自由能同轴堆叠。 对于螺旋II和III，最佳预测组合是同轴插入核苷酸G26和A9。
+
+通过对已知二级结构数据库的算法精度优化，找到启动参数a1、b1、c1、a2、b2、c2。为了搜索这六个变量的领域，编写了一个遗传算法。它的出发点是由具有三个分支螺旋的RNA多支环的光学熔化确定的稳定性提出的(J.M.Diamond，D.H.M.& D.H.T.，未发表的实验)。
+
+遗传算法通过随机突变和选择最适合的变量集来工作（Forrest，1993；Holland，1975）。在这种情况下，六个起始参数在每个迭代步骤中随机突变。然后，这些参数被用来预测二级结构，并对预测的结构进行评分。最适合的五组参数，即那些导致最高精度的参数，将被保留到下一个迭代步骤进行突变。
+
+### Reducing the search time and storage for multibranch loops
+
+在mfold的2.1版或更早版本中，三个大的三角形数组递归填充。 对于从核苷酸i到j（含）在内的每个片段，计算数量W1（i，j），W2（i，j）和V（i，j）。  W1（i，j）是片段从i到j的最小折叠能量，条件是该片段处于多分支循环中。 因此，``自由''碱基和碱基对被视为并处在多分支循环中并受到惩罚。  W2（i，j）只是i到j的无条件最小折叠能。 最后，V（i，j）是从i到j的最小折叠能量，假设形成了碱基对i j。 从2.2版开始，数组W1称为W，而W2数组已被两个线性数组W5和W3取代。  W5（i）包含曾经存储在W2（1，j）中的内容，W3（j）包含曾经存储在W2（j，n）中的内容，其中n是序列中核苷酸的数量。  W5和W3都可以递归计算，并且足以在整个序列上找到最佳折叠。
+
+在寻找由碱基对i j封闭的最佳多分支循环时，该算法的早期版本明确计算出：
+$$
+\begin{array}{l}
+V{M_1}(i,j) = \min [W(i + 1,k) + W(k + 1,j - 1)]\_{\rm{with\_i < k < j - 1} }\\
+V{M_2}(i,j) = b + \min [Ed(i,j,i + 1) + W(i + 2,k) + W(k + 1,j - 1)]\_with\_i + 1{\rm{ < k < j - 1} }\\
+V{M_3}(i,j) = b + \min [Ed(i,j,i - 1) + W(i + 1,k) + W(k + 1,j - 2)]\_with\_i{\rm{ < k < j - 2} }\\
+V{M_4}(i,j) = 2b + \min [Ed(i,j,i + 1) + Ed(i,j,i - 1) + W(i + 1,k) + W(k + 1,j - 2)]\_with\_i + 1{\rm{ < k < j - 2} }\\
+
+\end{array}
+$$
+Ed（x，y，z）是悬挂在碱基对x-y上的z的自由能，b是多分支环的自由能的常数（以上）。
+
+新版本的折叠算法利用了这样一个事实：min[W(i,k)+W(k+1,j)]，i <k <j，作为核苷酸i到j（包括）的最小折叠能量的一部分进行计算。这些数字现在存储在一个数组中，WM(i,j)，使得VM可以计算为：
+$$
+\begin{array}{l}
+V{M_1}(i,j) = WM(i + 1,j - 1)\\
+V{M_2}(i,j) = b + Ed(i,j,i + 1) + WM(i + 2,j - 1)\\
+V{M_3}(i,j) = b + Ed(i,j,i - 1) + WM(i + 1,j - 2)\\
+V{M_4}(i,j) = 2b + Ed(i,j,i + 1) + Ed(i,j,i - 1) + W(i + 2,j - 2)
+\end{array}
+$$
+由于仅寻址j，j-1和j-2的值，因此仅将WM（i，j（mod3））存储在n $\times$ 3数组中即可，因此存储量仅随序列长度线性增加。
+
+### Improved enforcing of base-pairing constraints
+
+三角形数组Fce（i，j）定义为1 <i <j <n，其中n是序列中核苷酸的数目。当且仅当存在必须配对的至少一个碱基k（其中i <k <j）时，Fce（i，j）才为1。 该数组是在填充算法执行之前通过一个简单的递归算法定义的，该递归算法以${n^2}$ 的时间顺序执行。 在填充算法期间，通过检查循环中单链区域的端点的Fce值，可以对包含必须配对碱基的任何循环赋予较大的自由能代价（1600 kcal / mol）。 在多分支和外部回路中，将单链核苷酸添加到回路中便会包括能量损失。 这样，可以防止必须配对的碱基成环。
+
+如果强制了基点i和j之间的碱基对，则如上所述，必须将i和j都配对。 此外，如果所有涉及i或j的碱基对堆栈不包含i-j碱基对，则将给予1600 kcal / mol的**penalty**。
