@@ -82,5 +82,15 @@ Binary_Analysis:
         url:    /2020/07/20/43ELFFileSegment.html
       - title:  ELF节和节头
         url:    /2020/08/06/43ELFFileSection.html
-      # - title:  ELF程序头和段
-      #   url:    /2020/07/20/43ELFFileSegment.html
+      - title:  ELF符号
+        url:    /2020/08/10/44ELFSymbol.html
+            # - title:  ELF程序头和段
+      #   url:    /2020/08/06/43ELFSymbol.html
+            # - title:  ELF程序头和段
+      #   url:    /2020/08/06/43ELFSymbol.html
+            # - title:  ELF程序头和段
+      #   url:    /2020/08/06/43ELFSymbol.html
+            # - title:  ELF程序头和段
+      #   url:    /2020/08/06/43ELFSymbol.html
+            # - title:  ELF程序头和段
+      #   url:    /2020/08/06/43ELFSymbol.html
